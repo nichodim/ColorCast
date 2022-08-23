@@ -14,12 +14,14 @@ public class Ground : MonoBehaviour
     {
         EvaluateCollision(collision);
         RetrieveFriction(collision);
+        onGround = true;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         EvaluateCollision(collision);
         RetrieveFriction(collision);
+        onGround = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
