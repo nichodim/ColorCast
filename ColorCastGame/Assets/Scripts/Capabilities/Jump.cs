@@ -68,17 +68,20 @@ public class Jump : MonoBehaviour
             JumpAction(); 
         }
 
-        if (input.RetrieveJumpHoldInput() && _body.velocity.y > 0)
+        if (!FindObjectOfType<Move>().isDashing)
         {
-            _body.gravityScale = _upwardMovementMultiplier;
-        }
-        else if (!input.RetrieveJumpHoldInput() || _body.velocity.y < 0)
-        {
-            _body.gravityScale = _downwardMovementMultiplier;
-        }
-        else if (_body.velocity.y == 0)
-        {
-            _body.gravityScale = _defaultGravityScale;
+            if (input.RetrieveJumpHoldInput() && _body.velocity.y > 0)
+            {
+                _body.gravityScale = _upwardMovementMultiplier;
+            }
+            else if (!input.RetrieveJumpHoldInput() || _body.velocity.y < 0)
+            {
+                _body.gravityScale = _downwardMovementMultiplier;
+            }
+            else if (_body.velocity.y == 0)
+            {
+                _body.gravityScale = _defaultGravityScale;
+            }
         }
 
         _body.velocity = _velocity;
