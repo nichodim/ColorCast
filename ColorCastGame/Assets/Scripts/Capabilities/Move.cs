@@ -8,19 +8,29 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float _maxSpeed = 4f;
     [SerializeField, Range(0f, 100f)] private float _maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 20f;
+    [SerializeField] private LayerMask layermask;
 
     private Vector2 _direction, _desiredVelocity, _velocity;
     private Rigidbody2D _body;
     private Ground _ground;
-    private bool isFacingRight = true; 
+    private bool isFacingRight = true;
+
+    //wallclimbvariables
+    /*
+    private bool wallSliding;
+    public float wallSlidingSpeed;
+    private bool isTouchingFront;*/
+    public Transform FrontCheck;
+    //public LayerMask ground; 
 
     //dashvariables
     private bool canDash = true;
     public bool isDashing;
     private float dashingPower = 24f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 1f;
-    private float preDashSpeed; 
+    private float dashingCooldown = 0.3f;
+    private float preDashSpeed;
+    private bool doneDash = true; 
     [SerializeField] private TrailRenderer tr; 
 
     private float _maxSpeedChange, _acceleration;
@@ -38,13 +48,32 @@ public class Move : MonoBehaviour
         {
             return; 
         }
+
+        if (_ground.onGround && doneDash)
+        {
+            canDash = true; 
+        }
+
         Flip(); 
         _direction.x = input.RetrieveMoveInput();
         _desiredVelocity = new Vector2(_direction.x, 0f) * Mathf.Max(_maxSpeed - _ground.friction, 0f);
+        
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash()); 
         }
+
+        /*isTouchingFront = Physics2D.OverlapCircle(FrontCheck.position, new Vector2(0.3f, 1f), 0, GameObject.FindWithTag("ground"));
+        if (isTouchingFront && !_ground.onGround && input.RetrieveMoveInput() != 0)
+        {
+            wallSliding = true; 
+        }
+        else
+        {
+            wallSliding = false;
+        }*/
+
+        Debug.Log(Physics2D.OverlapCircle(FrontCheck.position, 0.5f, layermask));
     }
 
     private void FixedUpdate()
@@ -61,6 +90,11 @@ public class Move : MonoBehaviour
         _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
 
         _body.velocity = _velocity;
+
+        /*if (wallSliding)
+        {
+            _body.velocity = new Vector2(_body.velocity.y, Mathf.Clamp(_body.velocity.y, -wallSlidingSpeed, float.MaxValue));
+        }*/
     }
 
     private void Flip()
@@ -78,6 +112,7 @@ public class Move : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        doneDash = false; 
         float originalGravity = _body.gravityScale;
         preDashSpeed = _body.velocity.x; 
         _body.gravityScale = 0f;
@@ -86,10 +121,10 @@ public class Move : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         _body.gravityScale = originalGravity;
-        _body.velocity =  new Vector2(preDashSpeed, 0f); 
+        _body.velocity =  new Vector2(preDashSpeed, 0f);
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
-        canDash = true; 
+        doneDash = true; 
     }
-    //FindObjectOfType<InputController>().horizontal
+    //FindObjectOfType<FrontCheck>().isTouchingFront
 }
