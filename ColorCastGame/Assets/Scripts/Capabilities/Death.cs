@@ -8,12 +8,18 @@ public class Death : MonoBehaviour
     
     void Start()
     {
+        cast = GetComponent<Cast>();
+    }
+
+    void FixedUpdate()
+    {
         cast = GetComponent<Cast>(); 
     }
 
+    // Kills character when colliding with opposing color tilemap
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //Tilemap1 is purple
+        // Tilemap1 is purple
         if (collision.gameObject.name == "Tilemap1")
         {
             if (cast.color == "pink")
@@ -21,7 +27,7 @@ public class Death : MonoBehaviour
                 Destroy(gameObject); 
             }
         }
-        //Tilemap2 is pink
+        // Tilemap2 is pink
         else if (collision.gameObject.name == "Tilemap2")
         {
             if (cast.color == "purple")
