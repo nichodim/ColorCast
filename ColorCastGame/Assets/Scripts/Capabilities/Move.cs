@@ -15,14 +15,6 @@ public class Move : MonoBehaviour
     private Ground _ground;
     private bool isFacingRight = true;
 
-    //wallclimbvariables
-    /*
-    private bool wallSliding;
-    public float wallSlidingSpeed;
-    private bool isTouchingFront;*/
-    public Transform FrontCheck;
-    //public LayerMask ground; 
-
     //dashvariables
     private bool canDash = true;
     public bool isDashing;
@@ -62,18 +54,6 @@ public class Move : MonoBehaviour
         {
             StartCoroutine(Dash()); 
         }
-
-        /*isTouchingFront = Physics2D.OverlapCircle(FrontCheck.position, new Vector2(0.3f, 1f), 0, GameObject.FindWithTag("ground"));
-        if (isTouchingFront && !_ground.onGround && input.RetrieveMoveInput() != 0)
-        {
-            wallSliding = true; 
-        }
-        else
-        {
-            wallSliding = false;
-        }*/
-
-        Debug.Log(Physics2D.OverlapCircle(FrontCheck.position, 0.5f, layermask));
     }
 
     private void FixedUpdate()
@@ -90,11 +70,6 @@ public class Move : MonoBehaviour
         _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
 
         _body.velocity = _velocity;
-
-        /*if (wallSliding)
-        {
-            _body.velocity = new Vector2(_body.velocity.y, Mathf.Clamp(_body.velocity.y, -wallSlidingSpeed, float.MaxValue));
-        }*/
     }
 
     private void Flip()
