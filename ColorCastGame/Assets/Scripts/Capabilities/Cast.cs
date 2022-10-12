@@ -36,5 +36,6 @@ public class Cast : MonoBehaviour
     void ColorCast(Material color)
     {
         GameObject.Find("Character").GetComponent<Renderer>().material = color;
+        GameObject.Find("Character").GetComponent<TrailRenderer>().material = color;
     }
 }
