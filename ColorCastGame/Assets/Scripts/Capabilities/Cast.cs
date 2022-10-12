@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Cast : MonoBehaviour
 {
+    public Material Pink;
+    public Material Purple;
+
     public string color;
 
     // Initiates player with color
-    // TODO add asset change with color name change
     void Start()
     {
-        color = "pink"; 
+        color = "pink";
+        ColorCast(Pink); 
     }
 
     void Update()
@@ -19,12 +22,20 @@ public class Cast : MonoBehaviour
         {
             if (color == "pink")
             {
-                color = "purple"; 
+                color = "purple";
+                //GameObject.Find("Character").GetComponent<Renderer>().material.color = new Color(52, 32, 176);
+                ColorCast(Purple);  
             }
             else if (color == "purple")
             {
-                color = "pink"; 
+                color = "pink";
+                ColorCast(Pink); 
             }
         }
+    }
+
+    void ColorCast(Material color)
+    {
+        GameObject.Find("Character").GetComponent<Renderer>().material = color;
     }
 }
