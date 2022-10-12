@@ -4,39 +4,27 @@ using UnityEngine;
 
 public class BackgroundColor : MonoBehaviour
 {
-    private Cast cast;
-    public Camera cam; 
+    public Camera cam;
 
     void Start()
     {
-        //cam = GetComponent<Camera>(); 
-        cast = GetComponent<Cast>();
-        BackgroundCast(cast.color); 
-    }
-
-    void FixedUpdate()
-    {
-        cast = GetComponent<Cast>();
+        cam = Camera.main;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown("e"))
-        {
-            BackgroundCast(cast.color);
-        }
+        BackgroundCast(FindObjectOfType<Cast>().color);
     }
 
     void BackgroundCast(string color)
     {
-        if (color == "Pink")
+        if (color == "pink")
         {
-            cam.backgroundColor = new Color(65, 1, 38, 0);
+            cam.backgroundColor = new Color(0.255f, 0.004f, 0.149f, 1f);
         }
-        else if (color == "Purple")
+        else if (color == "purple")
         {
-            cam.backgroundColor = new Color(18, 10, 70, 0);
-            //GetComponent<Camera>()
+            cam.backgroundColor = new Color(0.075f, 0.043f, 0.275f, 1f); 
         }
     }
 }

@@ -23,7 +23,6 @@ public class Cast : MonoBehaviour
             if (color == "pink")
             {
                 color = "purple";
-                //GameObject.Find("Character").GetComponent<Renderer>().material.color = new Color(52, 32, 176);
                 ColorCast(Purple);  
             }
             else if (color == "purple")
