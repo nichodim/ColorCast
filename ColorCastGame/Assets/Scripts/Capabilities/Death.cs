@@ -20,7 +20,7 @@ public class Death : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         // Tilemap1 is purple
-        if (collision.gameObject.name == "Tilemap1")
+        if (collision.gameObject.tag == "groundpurple")
         {
             if (cast.color == "pink")
             {
@@ -29,7 +29,7 @@ public class Death : MonoBehaviour
             }
         }
         // Tilemap2 is pink
-        else if (collision.gameObject.name == "Tilemap2")
+        else if (collision.gameObject.tag == "groundpink")
         {
             if (cast.color == "purple")
             {
