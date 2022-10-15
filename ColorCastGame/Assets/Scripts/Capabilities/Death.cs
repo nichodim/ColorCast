@@ -24,7 +24,6 @@ public class Death : MonoBehaviour
         {
             if (cast.color == "pink")
             {
-                //Destroy(gameObject); 
                 gameObject.SetActive(false); 
             }
         }
@@ -33,9 +32,12 @@ public class Death : MonoBehaviour
         {
             if (cast.color == "purple")
             {
-                //Destroy(gameObject);
                 gameObject.SetActive(false);
             }
+        }
+        else if (collision.gameObject.tag == "groundblack")
+        {
+            gameObject.SetActive(false);
         }
     }
 }
