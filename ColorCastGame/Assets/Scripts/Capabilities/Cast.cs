@@ -16,6 +16,7 @@ public class Cast : MonoBehaviour
         ColorCast(Pink); 
     }
 
+    // Casts opposite color
     void Update()
     {
         if (Input.GetKeyDown("e"))

@@ -24,7 +24,8 @@ public class Death : MonoBehaviour
         {
             if (cast.color == "pink")
             {
-                Destroy(gameObject); 
+                //Destroy(gameObject); 
+                gameObject.SetActive(false); 
             }
         }
         // Tilemap2 is pink
@@ -32,7 +33,8 @@ public class Death : MonoBehaviour
         {
             if (cast.color == "purple")
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
