@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundSwitch : MonoBehaviour
+public class TilemapSwitch : MonoBehaviour
 {
     public Material Pink;
     public Material Purple;
     public Material Black;
 
-    private Renderer renderer; 
+    Renderer renderer; 
 
     public string colorSwitch1 = "groundpurple";
     public string colorSwitch2 = "groundpink";
@@ -18,15 +18,15 @@ public class GroundSwitch : MonoBehaviour
     void Awake()
     {
         renderer = GetComponent<Renderer>();
-        // Sets type of ground and color right away
+        // Sets type of tilemap and color right away
         gameObject.tag = colorSwitch1;
-        GroundColor(colorSwitch1);
-        StartCoroutine(GroundSwitcher());
+        TilemapColor(colorSwitch1);
+        StartCoroutine(TilemapSwitcher());
     }
 
-    void GroundColor(string tiletag)
+    void TilemapColor(string tiletag)
     {
-        // Changes color depnding on tag name/ground
+        // Changes color depnding on tag name
         switch (gameObject.tag)
         {
             case "groundpink":
@@ -41,16 +41,15 @@ public class GroundSwitch : MonoBehaviour
         }
     }
 
-    IEnumerator GroundSwitcher()
+    IEnumerator TilemapSwitcher()
     {
-        // Loops switching between 2 types of ground
         while (true)
         {
             gameObject.tag = colorSwitch1;
-            GroundColor(colorSwitch1);
+            TilemapColor(colorSwitch1);
             yield return new WaitForSeconds(waitTime);
             gameObject.tag = colorSwitch2;
-            GroundColor(colorSwitch2);
+            TilemapColor(colorSwitch2);
             yield return new WaitForSeconds(waitTime);
         }
     }
