@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GroundSwitch : MonoBehaviour
 {
+    // Groundswitch allows for an object that switches between 2 types of ground/colors between a certain interval
+    // The following are valid ground types: 
+    // groundpink, groundpurple, groundblack
     public Material Pink;
     public Material Purple;
     public Material Black;

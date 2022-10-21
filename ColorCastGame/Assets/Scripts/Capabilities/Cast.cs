@@ -7,19 +7,26 @@ public class Cast : MonoBehaviour
     public Material Pink;
     public Material Purple;
 
-    public string color;
+    public string color = "pink";
 
     // Initiates player with color
     void Start()
     {
-        color = "pink";
-        ColorCast(Pink); 
+        if (color == "pink")
+        {
+            ColorCast(Pink);
+        }
+        else if(color == "purple")
+        {
+            ColorCast(Purple);
+        }
     }
 
     // Casts opposite color
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        // Casts character with opposite color (between pink and purple)
+        if (Input.GetKeyDown("w"))
         {
             if (color == "pink")
             {
