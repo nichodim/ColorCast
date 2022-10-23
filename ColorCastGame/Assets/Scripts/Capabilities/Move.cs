@@ -23,7 +23,7 @@ public class Move : MonoBehaviour
     private float dashingCooldown = 0.3f;
     private float preDashSpeed;
     private bool doneDash = true; 
-    [SerializeField] private TrailRenderer tr; 
+    //[SerializeField] private TrailRenderer tr; 
 
     private float _maxSpeedChange, _acceleration;
     private bool _onGround;
@@ -92,9 +92,9 @@ public class Move : MonoBehaviour
         preDashSpeed = _body.velocity.x; 
         _body.gravityScale = 0f;
         _body.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        tr.emitting = true;
+        //tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-        tr.emitting = false;
+        //tr.emitting = false;
         _body.gravityScale = originalGravity;
         _body.velocity =  new Vector2(preDashSpeed, 0f);
         isDashing = false;

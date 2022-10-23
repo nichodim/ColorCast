@@ -12,6 +12,8 @@ public class Jump : MonoBehaviour
     [SerializeField, Range(0, 0.3f)] private float _cayoteTime = 0.2f;
     [SerializeField, Range(0f, 0.3f)] private float _jumpBufferTime = 0.2f;
 
+    [SerializeField] private TrailRenderer tr;
+
     private Rigidbody2D _body;
     private Ground _ground;
     private Vector2 _velocity;
@@ -28,6 +30,8 @@ public class Jump : MonoBehaviour
         _ground = GetComponent<Ground>();
 
         _defaultGravityScale = 1f;
+
+        tr.emitting = false;
     }
 
     void Update()
@@ -49,6 +53,15 @@ public class Jump : MonoBehaviour
         else
         {
             _cayoteCounter -= Time.deltaTime; 
+        }
+
+        if (!_onGround)
+        {
+            tr.emitting = true; 
+        }
+        else
+        {
+            tr.emitting = false; 
         }
 
         if (_desiredJump)
