@@ -9,7 +9,7 @@ public static class Loader
     // This enum and enum mathod is only useful when making a script that isnt dynamic
     public enum Scene
     {
-        SampleScene, Loading, MainMenu
+        TestScene, Loading, MainMenu
     }
 
     private static Action onLoaderCallback; 

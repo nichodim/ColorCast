@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1348553428}
-  scene: SampleScene
+  scene: TestScene
 --- !u!114 &1348553428
 MonoBehaviour:
   m_ObjectHideFlags: 0
