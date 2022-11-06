@@ -11,10 +11,12 @@ public class Laser : MonoBehaviour
     public Transform LaserPointer;
     public LineRenderer LaserRenderer;
     private Transform laserTransform;
+    private int emitterLayerMask;
 
     private void Awake()
     {
         laserTransform = GetComponent<Transform>();
+        emitterLayerMask = LayerMask.GetMask("Default");
     }
 
     private void Update()
@@ -29,29 +31,27 @@ public class Laser : MonoBehaviour
         {
             RaycastHit2D _hit = Physics2D.Raycast(laserTransform.position, transform.right);
             Draw2DRay(LaserPointer.position, _hit.point);
-            Debug.Log("Drawhit"); 
         }
         // Fire line that hits entities
-        if (Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance))
+        if (Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance, emitterLayerMask))
         {
-            RaycastHit2D hit = Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance);
-            if (hit.collider.tag == "Player")
-            {
-                LaserHit();
-                Debug.Log("Playerhit"); 
-            }
+            RaycastHit2D hit = Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance, emitterLayerMask);
+            LaserHit(hit);
         }
     }
 
     void Draw2DRay(Vector2 startPos, Vector2 endPos)
-    {
-        Debug.Log("startPos: " + startPos + "\nendPos: " + endPos); 
+    { 
         LaserRenderer.SetPosition(0, startPos);
         LaserRenderer.SetPosition(1, endPos);
     }
 
-    void LaserHit()
+    void LaserHit(RaycastHit2D hit)
     {
-        GameObject.Find("Character").SetActive(false);
+        if (hit.collider.tag == "Player")
+        {
+            GameObject.Find("Character").SetActive(false);
+        }
+    // TODO replace system with specific color lasers that work accordingly
     }
 }

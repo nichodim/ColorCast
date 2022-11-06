@@ -7,6 +7,8 @@ TagManager:
   - ground
   - groundpurple
   - groundpink
+  - groundblack
+  - laser
   layers:
   - Default
   - TransparentFX
@@ -43,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Nonlaserable
+    uniqueID: 2797492267
     locked: 0
