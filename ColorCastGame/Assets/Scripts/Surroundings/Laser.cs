@@ -30,7 +30,14 @@ public class Laser : MonoBehaviour
         if (Physics2D.Raycast(laserTransform.position, transform.right))
         {
             RaycastHit2D _hit = Physics2D.Raycast(laserTransform.position, transform.right);
-            Draw2DRay(LaserPointer.position, _hit.point);
+            if (_hit.point == null)
+            {
+                Draw2DRay(LaserPointer.position, LaserPointer.position * defaultLaserDistance);
+            }
+            else
+            {
+                Draw2DRay(LaserPointer.position, _hit.point);
+            }
         }
         // Fire line that hits entities
         if (Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance, emitterLayerMask))

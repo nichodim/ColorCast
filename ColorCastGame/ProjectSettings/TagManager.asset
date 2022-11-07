@@ -49,3 +49,6 @@ TagManager:
   - name: Nonlaserable
     uniqueID: 2797492267
     locked: 0
+  - name: laser
+    uniqueID: 201115509
+    locked: 0
