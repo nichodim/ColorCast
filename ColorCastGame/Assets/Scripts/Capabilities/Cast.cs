@@ -16,7 +16,7 @@ public class Cast : MonoBehaviour
         {
             ColorCast(Pink);
         }
-        else if(color == "purple")
+        else if (color == "purple")
         {
             ColorCast(Purple);
         }

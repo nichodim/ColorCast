@@ -20,20 +20,14 @@ public class Death : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         // Tilemap1 is purple
-        if (collision.gameObject.tag == "groundpurple")
+        if (collision.gameObject.tag == "groundpurple" && cast.color == "pink")
         {
-            if (cast.color == "pink")
-            {
-                gameObject.SetActive(false); 
-            }
+            gameObject.SetActive(false);
         }
         // Tilemap2 is pink
-        else if (collision.gameObject.tag == "groundpink")
+        else if (collision.gameObject.tag == "groundpink" && cast.color == "purple")
         {
-            if (cast.color == "purple")
-            {
-                gameObject.SetActive(false);
-            }
+            gameObject.SetActive(false);
         }
         else if (collision.gameObject.tag == "groundblack")
         {

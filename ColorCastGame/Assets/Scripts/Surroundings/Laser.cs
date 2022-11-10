@@ -1,5 +1,8 @@
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
@@ -12,11 +15,20 @@ public class Laser : MonoBehaviour
     public LineRenderer LaserRenderer;
     private Transform laserTransform;
     private int emitterLayerMask;
+    private Cast cast;
+    public GameObject Character; 
 
     private void Awake()
     {
+        Character = GameObject.Find("Character"); 
+        cast = Character.GetComponent<Cast>();
         laserTransform = GetComponent<Transform>();
         emitterLayerMask = LayerMask.GetMask("Default");
+    }
+
+    void FixedUpdate()
+    {
+        cast = Character.GetComponent<Cast>();
     }
 
     private void Update()
@@ -55,10 +67,17 @@ public class Laser : MonoBehaviour
 
     void LaserHit(RaycastHit2D hit)
     {
+        // Kills the player if colors are opposite
         if (hit.collider.tag == "Player")
         {
-            GameObject.Find("Character").SetActive(false);
+            if (gameObject.tag == "groundpurple" && cast.color == "pink")
+            {
+                Character.SetActive(false);
+            }
+            else if (gameObject.tag == "groundpink" && cast.color == "purple")
+            {
+                Character.SetActive(false);
+            }
         }
-    // TODO replace system with specific color lasers that work accordingly
     }
 }
