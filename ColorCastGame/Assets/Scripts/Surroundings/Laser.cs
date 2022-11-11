@@ -12,9 +12,10 @@ public class Laser : MonoBehaviour
 
     // Relevant info
     public Transform LaserPointer;
-    public LineRenderer LaserRenderer;
     private Transform laserTransform;
+    public LineRenderer LaserRenderer;
     private int emitterLayerMask;
+
     private Cast cast;
     private GameObject Character; 
 
