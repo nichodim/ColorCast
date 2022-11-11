@@ -54,7 +54,7 @@ public class Laser : MonoBehaviour
         // Fire line that hits entities
         if (Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance, emitterLayerMask))
         {
-            RaycastHit2D hit = Physics2D.Raycast(laserTransform.position, transform.right, defaultLaserDistance, emitterLayerMask);
+            RaycastHit2D hit = Physics2D.Raycast(laserTransform.position, transform.right);
             LaserHit(hit);
         }
     }
