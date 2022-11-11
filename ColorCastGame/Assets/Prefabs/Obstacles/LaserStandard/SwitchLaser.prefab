@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2873053812808495200}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 1186806361755255088}
   - component: {fileID: 5139294623940271102}
   - component: {fileID: 3849236814542708135}
-  m_Layer: 0
+  - component: {fileID: 4773277312685222192}
+  m_Layer: 2
   m_Name: SwitchLaser
   m_TagString: groundpink
   m_Icon: {fileID: 0}
@@ -66,7 +67,7 @@ Transform:
   m_Children:
   - {fileID: 2873053812808495200}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5767626437598679117
 SpriteRenderer:
@@ -156,7 +157,6 @@ MonoBehaviour:
   defaultLaserDistance: 50
   LaserPointer: {fileID: 2873053812808495200}
   LaserRenderer: {fileID: 5139294623940271102}
-  Character: {fileID: 0}
 --- !u!120 &5139294623940271102
 LineRenderer:
   serializedVersion: 2
@@ -278,3 +278,35 @@ MonoBehaviour:
   colorSwitch1: groundpurple
   colorSwitch2: groundpink
   waitTime: 1
+--- !u!60 &4773277312685222192
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895268451415312658}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1463e5138ebe199438a1e38e62599fcf, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: -0.4765625, y: -0.5}
+      - {x: 0.5, y: -0.01171875}
+      - {x: 0.5, y: 0.01171875}
+      - {x: -0.4765625, y: 0.5}
+  m_UseDelaunayMesh: 0

@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 1248121607581970401}
   - component: {fileID: 7163954577506429368}
   - component: {fileID: 5985672935188604787}
-  m_Layer: 0
+  - component: {fileID: 6219453932448161281}
+  m_Layer: 2
   m_Name: MovableSwitchLaser
   m_TagString: groundpink
   m_Icon: {fileID: 0}
@@ -36,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 8205389187779216511}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &435441143289341010
 SpriteRenderer:
@@ -126,7 +127,6 @@ MonoBehaviour:
   defaultLaserDistance: 50
   LaserPointer: {fileID: 8205389187779216511}
   LaserRenderer: {fileID: 1248121607581970401}
-  Character: {fileID: 0}
 --- !u!120 &1248121607581970401
 LineRenderer:
   serializedVersion: 2
@@ -264,6 +264,38 @@ MonoBehaviour:
   distanceX: 0
   distanceY: 0
   speed: 3
+--- !u!60 &6219453932448161281
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274698852006378765}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1463e5138ebe199438a1e38e62599fcf, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: -0.4765625, y: -0.5}
+      - {x: 0.5, y: -0.01171875}
+      - {x: 0.5, y: 0.01171875}
+      - {x: -0.4765625, y: 0.5}
+  m_UseDelaunayMesh: 0
 --- !u!1 &8846151012070578550
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8205389187779216511}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015635273677456348}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserPointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 5293234213356282911}
   - component: {fileID: 8204693599842956}
   - component: {fileID: 6284550088632182850}
-  m_Layer: 0
+  - component: {fileID: 8313306848403507313}
+  m_Layer: 2
   m_Name: PurpleLaser
   m_TagString: groundpurple
   m_Icon: {fileID: 0}
@@ -155,7 +156,6 @@ MonoBehaviour:
   defaultLaserDistance: 50
   LaserPointer: {fileID: 4015635273677456348}
   LaserRenderer: {fileID: 6284550088632182850}
-  Character: {fileID: 0}
 --- !u!120 &6284550088632182850
 LineRenderer:
   serializedVersion: 2
@@ -259,3 +259,35 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!60 &8313306848403507313
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716658193459559086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1463e5138ebe199438a1e38e62599fcf, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: -0.4765625, y: -0.5}
+      - {x: 0.5, y: -0.01171875}
+      - {x: 0.5, y: 0.01171875}
+      - {x: -0.4765625, y: 0.5}
+  m_UseDelaunayMesh: 0

@@ -16,7 +16,7 @@ public class Laser : MonoBehaviour
     private Transform laserTransform;
     private int emitterLayerMask;
     private Cast cast;
-    public GameObject Character; 
+    private GameObject Character; 
 
     private void Awake()
     {
