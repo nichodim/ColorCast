@@ -274,6 +274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pink: {fileID: 2100000, guid: c50b0e2487c171d4ea832b000249022d, type: 2}
   Purple: {fileID: 2100000, guid: db5d30f3654356440ba086cdcfabc1aa, type: 2}
+  PinkLaserMat: {fileID: 2100000, guid: fea592e750881a94bb767ba23618d568, type: 2}
+  PurpleLaserMat: {fileID: 2100000, guid: 789196f2226480a45ae6c12650f60ad4, type: 2}
+  pink: {r: 0.90196085, g: 0, b: 0.52156866, a: 1}
+  purple: {r: 0.19607845, g: 0.1254902, b: 0.654902, a: 1}
   LaserRenderer: {fileID: 5139294623940271102}
   colorSwitch1: groundpurple
   colorSwitch2: groundpink

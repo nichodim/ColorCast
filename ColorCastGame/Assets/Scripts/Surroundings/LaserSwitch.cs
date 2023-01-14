@@ -6,6 +6,11 @@ public class LaserSwitch : MonoBehaviour
 {
     public Material Pink;
     public Material Purple;
+    public Material PinkLaserMat;
+    public Material PurpleLaserMat;
+
+    public Color pink = new Color(0.255f, 0.004f, 0.149f, 1f);
+    public Color purple = new Color(0.075f, 0.043f, 0.275f, 1f);
 
     Renderer renderer;
     public LineRenderer LaserRenderer;
@@ -31,11 +36,13 @@ public class LaserSwitch : MonoBehaviour
         {
             case "groundpink":
                 renderer.material = Pink;
-                LaserRenderer.material = Pink; 
+                LaserRenderer.material = PinkLaserMat;
+                LaserRenderer.SetColors(pink, pink); 
                 break;
             case "groundpurple":
                 renderer.material = Purple;
-                LaserRenderer.material = Purple;
+                LaserRenderer.material = PurpleLaserMat;
+                LaserRenderer.SetColors(purple, purple);
                 break;
         }
     }
